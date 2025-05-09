@@ -23,7 +23,11 @@
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
 	<link rel="stylesheet" {{ printf `href="%s"` $googleFontsLink | safeHTMLAttr }}>
 	{{- end }}
-	
+	{{ if .Params.canonicalUrl }}
+	<link rel="canonical" href="{{ .Params.canonicalUrl }}">
+	{{ else }}
+	<link rel="canonical" href="{{ .RelPermalink }}">
+	{{ end }}
 	{{ $style := resources.Get "css/style.css" | resources.ExecuteAsTemplate "css/style.css" . -}}
 	<link rel="stylesheet" href="{{ $style.RelPermalink }}">
 	{{ range .Site.Params.customCSS -}}
