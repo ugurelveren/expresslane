@@ -1,0 +1,10 @@
+{{ $src := .Get "src" }}
+{{ $alt := .Get "alt" | default "" }}
+{{ $size := .Get "size" | default "600x" }}
+
+{{ with resources.Get $src }}
+  {{ $resized := .Fit $size }}
+  <img src="{{ $resized.RelPermalink }}" alt="{{ $alt }}">
+{{ else }}
+  <p>Image not found: {{ $src }}</p>
+{{ end }}
