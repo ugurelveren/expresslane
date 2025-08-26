@@ -1,0 +1,9 @@
+{{- if .IsNamedParams -}}
+<div class="mermaid"{{- with .Get "id" }} id="{{ . }}"{{- end }}{{- with .Get "class" }} class="{{ . }}"{{- end }}>
+{{- .Get "diagram" | safeHTML -}}
+</div>
+{{- else -}}
+<div class="mermaid">
+{{- .Inner | safeHTML -}}
+</div>
+{{- end -}}

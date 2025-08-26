@@ -18,7 +18,7 @@
 + Wide cross-browser compatibility
   + *Desktop: IE11+, Chrome, Firefox, Safari*
   + *Mobile: Android browser (on Android 4.4+), Safari (on iOS 7+), Google Chrome, Opera mini*
-+ Custom Google Fonts support, MathJax, Table of Contents, SVG icons and much more…
++ Custom Google Fonts support, MathJax, Mermaid diagrams, Table of Contents, SVG icons and much more…
 
 ## Installation
 
@@ -26,6 +26,19 @@
 [installed Hugo](https://gohugo.io/getting-started/quick-start/#step-1-install-hugo) and
 [created a new site](https://gohugo.io/getting-started/quick-start/#step-2-create-a-new-site). After that, you are ready
 to install **Mainroad**.*
+
+### Option 1: Development Container (Recommended for Development)
+
+If you want to contribute to this theme or test it in a complete development environment:
+
+1. Clone this repository
+2. Open in VS Code with the Dev Containers extension
+3. VS Code will prompt to reopen in container - click "Reopen in Container"
+4. Once the container is built, run: `./scripts/dev.sh serve`
+
+The development container includes Hugo, Node.js, and all necessary tools pre-configured.
+
+### Option 2: Manual Installation
 
 From your project's root directory, run:
 
@@ -88,6 +101,14 @@ googleAnalytics = "" # DEPRECATED! Use .Services.googleAnalytics.ID
   googleFontsLink = "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" # Load Google Fonts
   customCSS = ["css/custom.css"] # Include custom CSS files
   customJS = ["js/custom.js"] # Include custom JS files
+  
+  # Mermaid configuration (optional global defaults)
+  [Params.mermaid]
+    theme = "default" # Available themes: default, neutral, dark, forest, base
+    primaryColor = "#ff0000"
+    primaryTextColor = "#fff"
+    primaryBorderColor = "#ff0000"
+    lineColor = "#333333"
 
   # DEPRECATED PARAMS
   subtitle = "" # Deprecated in favor of .Site.Params.logo.subtitle
@@ -183,6 +204,9 @@ authorbox: true # Enable authorbox for specific page
 pager: true # Enable pager navigation (prev/next) for specific page
 toc: true # Enable Table of Contents for specific page
 mathjax: true # Enable MathJax for specific page
+mermaid: true # Enable Mermaid diagrams for specific page
+mermaidTheme: "dark" # Override Mermaid theme for specific page
+mermaidPrimaryColor: "#00ff00" # Override Mermaid primary color for specific page
 sidebar: "right" # Enable sidebar (on the right side) per page
 widgets: # Enable sidebar widgets in given order per page
   - "search"
