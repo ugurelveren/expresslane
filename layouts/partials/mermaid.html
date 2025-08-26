@@ -1,0 +1,20 @@
+{{ if and .IsPage (eq (.Param "mermaid") true) }}
+<script src="{{ .Param "mermaidPath" | default (.Site.Params.mermaidPath | default "https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js") }}"></script>
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: '{{ .Param "mermaidTheme" | default (.Site.Params.mermaid.theme | default "default") }}',
+    themeVariables: {
+      primaryColor: '{{ .Param "mermaidPrimaryColor" | default (.Site.Params.mermaid.primaryColor | default "#ff0000") }}',
+      primaryTextColor: '{{ .Param "mermaidPrimaryTextColor" | default (.Site.Params.mermaid.primaryTextColor | default "#fff") }}',
+      primaryBorderColor: '{{ .Param "mermaidPrimaryBorderColor" | default (.Site.Params.mermaid.primaryBorderColor | default "#ff0000") }}',
+      lineColor: '{{ .Param "mermaidLineColor" | default (.Site.Params.mermaid.lineColor | default "#333333") }}',
+      sectionBkgColor: '{{ .Param "mermaidSectionBkgColor" | default (.Site.Params.mermaid.sectionBkgColor | default "#ffffff") }}',
+      altSectionBkgColor: '{{ .Param "mermaidAltSectionBkgColor" | default (.Site.Params.mermaid.altSectionBkgColor | default "#ffffff") }}',
+      gridColor: '{{ .Param "mermaidGridColor" | default (.Site.Params.mermaid.gridColor | default "#333333") }}',
+      secondaryColor: '{{ .Param "mermaidSecondaryColor" | default (.Site.Params.mermaid.secondaryColor | default "#006100") }}',
+      tertiaryColor: '{{ .Param "mermaidTertiaryColor" | default (.Site.Params.mermaid.tertiaryColor | default "#fff") }}'
+    }
+  });
+</script>
+{{ end }}

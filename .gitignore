@@ -2,11 +2,23 @@
 node_modules/
 npm-debug.log
 
+# Hugo
+public/
+resources/
+.hugo_build.lock
+
+# Dev Container
+.devcontainer/.env
+
 # IDE
 .idea
 *.sublime-project
 *.sublime-workspace
 .vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 
 # OS
 ._*
@@ -17,3 +29,6 @@ Thumbs.db
 .AppleDouble
 .LSOverride
 Desktop.ini
+
+# Test files
+test-*.html

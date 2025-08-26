@@ -1,0 +1,46 @@
+{
+  "name": "Hugo Development",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "bungcip.better-toml",
+        "davidanson.vscode-markdownlint",
+        "ms-vscode.vscode-json",
+        "streetsidesoftware.code-spell-checker",
+        "bradlc.vscode-tailwindcss",
+        "formulahendry.auto-rename-tag",
+        "christian-kohler.path-intellisense",
+        "ms-vscode.live-server"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "files.associations": {
+          "*.html": "html",
+          "*.md": "markdown"
+        },
+        "hugo.server.baseURL": "http://localhost:1313"
+      }
+    }
+  },
+
+  "postCreateCommand": "bash /workspaces/expresslane/.devcontainer/setup.sh",
+  
+  "forwardPorts": [1313],
+  "portsAttributes": {
+    "1313": {
+      "label": "Hugo Dev Server",
+      "onAutoForward": "notify"
+    }
+  },
+
+  "remoteUser": "vscode",
+  "workspaceFolder": "/workspaces/expresslane"
+}
