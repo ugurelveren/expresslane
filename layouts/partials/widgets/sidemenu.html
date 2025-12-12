@@ -3,10 +3,14 @@
 	<h4 class="widget__title">{{ T "sidemenu_title" }}</h4>
 	<nav class="widget__content">
 		<ul class="widget__list">
+			{{- $lang := .Site.Language.Lang }}
 			{{ range .Site.Menus.side }}
+			{{- $itemLang := .Params.lang | default "" }}
+			{{- if or (eq $itemLang "") (eq $itemLang $lang) }}
 			<li class="widget__item">
 				<a class="widget__link" href="{{ .URL }}">{{ .Name }}</a>
 			</li>
+			{{- end }}
 			{{ end }}
 		</ul>
 	</nav>

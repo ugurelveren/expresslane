@@ -1,8 +1,14 @@
 {{- with .Site.Menus.footer }}
 <div class="footer__links">
-	{{ range $key, $value := . }}
-		{{- if ne $key 0 }} | {{ end -}}
-		<a class="footer__link" href="{{ $value.URL }}">{{ $value.Name }}</a>
+	{{- $lang := $.Site.Language.Lang }}
+	{{- $printed := 0 }}
+	{{- range $key, $value := . }}
+		{{- $itemLang := $value.Params.lang | default "" }}
+		{{- if or (eq $itemLang "") (eq $itemLang $lang) }}
+			{{- if ne $printed 0 }} | {{ end -}}
+			<a class="footer__link" href="{{ $value.URL }}">{{ $value.Name }}</a>
+			{{- $printed = add $printed 1 }}
+		{{- end }}
 	{{- end }}
 </div>
 {{- end }}

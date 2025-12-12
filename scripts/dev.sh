@@ -41,8 +41,14 @@ serve_site() {
         ln -sf ../../ themes/mainroad
     fi
     
-    echo -e "${BLUE}Server will be available at: http://localhost:1313${NC}"
-    hugo server --bind 0.0.0.0 --port 1313 --baseURL http://localhost:1313 --buildDrafts --buildFuture
+    local base_url="http://localhost:1313/"
+
+    if [ "${CODESPACES:-}" = "true" ] && [ -n "${CODESPACE_NAME:-}" ] && [ -n "${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN:-}" ]; then
+        base_url="https://${CODESPACE_NAME}-1313.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}/"
+    fi
+
+    echo -e "${BLUE}Server URL: ${base_url}${NC}"
+    hugo server --bind 0.0.0.0 --port 1313 --baseURL "$base_url" --appendPort=false --buildDrafts --buildFuture
 }
 
 build_site() {

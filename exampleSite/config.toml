@@ -1,6 +1,8 @@
 baseurl = "/"
 title = "Mainroad"
 languageCode = "en-us"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = true
 theme = "mainroad"
 disqusShortname = "" # Enable comments by entering your Disqus shortname
 googleAnalytics = "" # Enable Google Analytics by entering your tracking id
@@ -49,3 +51,46 @@ googleAnalytics = "" # Enable Google Analytics by entering your tracking id
   primaryTextColor = "#fff"
   primaryBorderColor = "#ff0000"
   lineColor = "#333333"
+
+# Multilingual example (recommended approach)
+[languages]
+  [languages.en]
+    languageName = "English"
+    weight = 1
+
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+        name = "Home"
+        pageRef = "/"
+        weight = 1
+
+      [[languages.en.menu.main]]
+        name = "Docs"
+        pageRef = "/docs"
+        weight = 2
+
+      [[languages.en.menu.main]]
+        name = "About"
+        pageRef = "/about"
+        weight = 3
+
+  [languages.tr]
+    languageName = "Türkçe"
+    languageCode = "tr-tr"
+    weight = 2
+
+    [languages.tr.menu]
+      [[languages.tr.menu.main]]
+        name = "Ana Sayfa"
+        pageRef = "/"
+        weight = 1
+
+      [[languages.tr.menu.main]]
+        name = "Dokümanlar"
+        pageRef = "/docs"
+        weight = 2
+
+      [[languages.tr.menu.main]]
+        name = "Hakkında"
+        pageRef = "/about"
+        weight = 3
