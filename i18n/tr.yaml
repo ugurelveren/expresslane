@@ -1,0 +1,91 @@
+# Genel
+- id: read_more
+  translation: "Devamını oku…"
+
+- id: menu_label
+  translation: "Menü"
+
+- id: sidemenu_title
+  translation: "Menü"
+
+# Yazı meta
+- id: meta_lastmod
+  translation: "Son Güncelleme"
+
+- id: meta_translations
+  translation: "Çeviriler"
+
+# İçindekiler
+- id: toc_title
+  translation: "Sayfa içeriği"
+
+# Yazı navigasyonu
+- id: post_nav_prev
+  translation: "Önceki"
+
+- id: post_nav_next
+  translation: "Sonraki"
+
+# Yazar kutusu
+- id: authorbox_name
+  translation: "Hakkında {{ .Name }}"
+
+# Kenar çubuğu
+- id: sidebar_warning
+  translation: "UYARI"
+
+- id: sidebar_recommendation
+  translation: "Lütfen en az bir kenar çubuğu bileşeni etkinleştirin."
+
+# Arama bileşeni
+- id: search_placeholder
+  translation: "Ara…"
+
+# Diller bileşeni
+- id: languages_title
+  translation: "Diller"
+
+# Kategoriler bileşeni
+- id: categories_title
+  translation: "Kategoriler"
+
+# Son Yazılar bileşeni
+- id: recent_title
+  translation: "Son Yazılar"
+
+# Sosyal bileşeni
+- id: social_title
+  translation: "Sosyal"
+
+# Etiketler Listesi bileşeni
+- id: tags_title
+  translation: "Etiketler"
+
+# Altbilgi
+- id: footer_credits
+  translation:
+    "<a href=\"https://gohugo.io/\" rel=\"nofollow noopener\" target=\"_blank\">Hugo</a> ve \
+    <a href=\"https://github.com/ugurelveren/expresslane\" rel=\"nofollow noopener\" target=\"_blank\">Expresslane</a> teması ile oluşturuldu."
+
+# 404
+- id: 404_title
+  translation: "404. Sayfa bulunamadı"
+
+- id: 404_text
+  translation:
+    "Aradığınız sayfa taşınmış, silinmiş veya mevcut değil gibi görünüyor. Lütfen arama yapın veya ana sayfaya gidin."
+
+- id: 404_linktext
+  translation: "ana sayfa"
+
+# Yazı yok durumu
+- id: noposts_warning_title
+  translation: "Henüz hiç yazınız yok!"
+
+- id: noposts_warning_description
+  translation:
+    "<b>content</b> dizini altındaki herhangi bir klasöre (bölüme) bir şey gönderdiğinizde burada görünecek. Varsayılan olarak ana sayfada yalnızca bir bölüm (en çok yazıya sahip olan) görüntülenecektir."
+
+- id: noposts_warning_tip
+  translation:
+    "<b>İpucu:</b> <b><a href=\"https://gohugo.io/functions/where/#mainsections\" rel=\"nofollow noopener\" target=\"_blank\">mainSections</a></b> yapılandırma parametresi ile istediğiniz kadar bölüm gösterebilirsiniz."
