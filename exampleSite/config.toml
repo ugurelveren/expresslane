@@ -74,6 +74,25 @@ googleAnalytics = "" # Enable Google Analytics by entering your tracking id
         pageRef = "/about"
         weight = 3
 
+      # parent/child demonstration
+      [[languages.en.menu.main]]
+        name = "Parent"
+        url = "/parent/"
+        identifier = "parent"
+        weight = 4
+
+      [[languages.en.menu.main]]
+        name = "Child One"
+        url = "/parent/child-one/"
+        parent = "parent"
+        weight = 1
+
+      [[languages.en.menu.main]]
+        name = "Child Two"
+        url = "/parent/child-two/"
+        parent = "parent"
+        weight = 2
+
   [languages.tr]
     languageName = "Türkçe"
     languageCode = "tr-tr"

@@ -1,0 +1,17 @@
+{{/*
+Recursive menu-items partial. Expects a dict with "items" (slice of menu entries) and
+"current" (the page context used for IsMenuCurrent/HasMenuCurrent).
+*/}}
+{{- $current := .current -}}
+{{- range .items -}}
+    <li class="menu__item{{ if .HasChildren }} menu__item--has-children{{ end }}{{ if or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }} menu__item--active{{ end }}">
+        <a class="menu__link" href="{{ .URL }}">
+            {{ .Pre }}<span class="menu__text">{{ .Name }}</span>{{ .Post }}
+        </a>
+        {{- if .HasChildren }}
+        <ul class="menu__submenu">
+            {{ partial "menu-items.html" (dict "items" .Children "current" $current) }}
+        </ul>
+        {{- end }}
+    </li>
+{{- end -}}

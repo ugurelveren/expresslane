@@ -3,21 +3,19 @@
 	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
 		<span class="menu__btn-title" tabindex="-1">{{ T "menu_label" }}</span>
 	</button>
+
 	<ul class="menu__list">
-		{{- $currentNode := . }}
-		{{- $lang := .Site.Language.Lang }}
+		{{- $currentNode := . -}}
+		{{- $lang := .Site.Language.Lang -}}
+		{{- /* filter by language and then render recursively */ -}}
+		{{- $items := slice }}
 		{{- range .Site.Menus.main }}
-		{{- $itemLang := .Params.lang | default "" }}
-		{{- if and (or (eq $itemLang "") (eq $itemLang $lang)) .Name }}
-		<li class="menu__item{{ if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) }} menu__item--active{{ end }}">
-			<a class="menu__link" href="{{ .URL }}">
-				{{ .Pre }}
-				<span class="menu__text">{{ .Name }}</span>
-				{{ .Post }}
-			</a>
-		</li>
+			{{- $itemLang := .Params.lang | default "" }}
+			{{- if and (or (eq $itemLang "") (eq $itemLang $lang)) .Name }}
+				{{- $items = $items | append . }}
+			{{- end }}
 		{{- end }}
-		{{- end }}
+		{{ partial "menu-items.html" (dict "items" $items "current" $currentNode) }}
 	</ul>
 </nav>
 {{ else -}}
